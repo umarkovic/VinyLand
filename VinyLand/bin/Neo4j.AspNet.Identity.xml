@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Neo4j.AspNet.Identity</name>
+    </assembly>
+    <members>
+        <member name="T:Neo4j.AspNet.Identity.GraphClientWrapper">
+            <summary>A wrapper class to allow the GraphClient to be used within the OWIN framework (must implement <see cref="T:System.IDisposable"/>)</summary>
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.GraphClientWrapper.#ctor(Neo4jClient.IGraphClient)">
+            <summary>
+            Construct a new GraphClientWrapper instance
+            </summary>
+            <param name="graphClient">The <see cref="T:Neo4jClient.IGraphClient"/> instance to wrap.</param>
+        </member>
+        <member name="P:Neo4j.AspNet.Identity.GraphClientWrapper.GraphClient">
+            <summary>
+            Gets the <see cref="T:Neo4jClient.IGraphClient"/> instance.
+            </summary>
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.GraphClientWrapper.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Neo4j.AspNet.Identity.ApplicationUser">
+            <summary>
+            This is the main User Object for the Identity. Extend it to add extra features.
+            </summary>
+        </member>
+        <member name="P:Neo4j.AspNet.Identity.ApplicationUser.Labels">
+            <summary>
+            Gets the default labels used (User) for an <see cref="T:Neo4j.AspNet.Identity.ApplicationUser"/>.
+            </summary>
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetLockoutEndDateAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetLockoutEndDateAsync(`0,System.DateTimeOffset)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.IncrementAccessFailedCountAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.ResetAccessFailedCountAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetAccessFailedCountAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetLockoutEnabledAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetLockoutEnabledAsync(`0,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetPhoneNumberAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetPhoneNumberAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetPhoneNumberConfirmedAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetPhoneNumberConfirmedAsync(`0,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetTwoFactorEnabledAsync(`0,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetTwoFactorEnabledAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.UserMatch(System.String)">
+            <summary>
+                Gets: MATCH (
+            </summary>
+        </member>
+        <member name="P:Neo4j.AspNet.Identity.Neo4jUserStore`1.Neo4jUserLoginInfo.LoginProvider">
+            <summary>
+                Provider for the linked login, i.e. Facebook, Google, etc.
+            </summary>
+        </member>
+        <member name="P:Neo4j.AspNet.Identity.Neo4jUserStore`1.Neo4jUserLoginInfo.ProviderKey">
+            <summary>
+                User specific key for the login provider
+            </summary>
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.AddLoginAsync(`0,Microsoft.AspNet.Identity.UserLoginInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.FindAsync(Microsoft.AspNet.Identity.UserLoginInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetLoginsAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.RemoveLoginAsync(`0,Microsoft.AspNet.Identity.UserLoginInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.CreateAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.DeleteAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.FindByIdAsync(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.FindByIdAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.FindByNameAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.UpdateAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.AddClaimAsync(`0,System.Security.Claims.Claim)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetClaimsAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.RemoveClaimAsync(`0,System.Security.Claims.Claim)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.AddToRoleAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetRolesAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.IsInRoleAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.RemoveFromRoleAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetPasswordHashAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.HasPasswordAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetPasswordHashAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetSecurityStampAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetSecurityStampAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.FindByEmailAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetEmailAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.GetEmailConfirmedAsync(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetEmailAsync(`0,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Neo4jUserStore`1.SetEmailConfirmedAsync(`0,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Neo4j.AspNet.Identity.Relationship">
+            <summary>Consts for the Relationships used throughout Neo4j.</summary>
+        </member>
+        <member name="F:Neo4j.AspNet.Identity.Relationship.HasLogin">
+            <summary>Relationship representing whether a user has another Login - HAS_LOGIN</summary>
+        </member>
+        <member name="F:Neo4j.AspNet.Identity.Relationship.HasClaim">
+            <summary>Relationship representing whether a user has a claim - HAS_LOGIN</summary>
+        </member>
+        <member name="T:Neo4j.AspNet.Identity.Labels">
+            <summary>Consts for the Labels used throughout Neo4j.</summary>
+        </member>
+        <member name="F:Neo4j.AspNet.Identity.Labels.Login">
+            <summary>Login label, used by <see cref="T:Microsoft.AspNet.Identity.UserLoginInfo"/> class.</summary>
+        </member>
+        <member name="F:Neo4j.AspNet.Identity.Labels.User">
+            <summary>User label, used by <see cref="T:Neo4j.AspNet.Identity.ApplicationUser"/> class.</summary>
+        </member>
+        <member name="F:Neo4j.AspNet.Identity.Labels.Claim">
+            <summary>Claim label, used by <see cref="T:Neo4j.AspNet.Identity.IdentityUserClaim"/> class.</summary>
+        </member>
+        <member name="T:Neo4j.AspNet.Identity.Throw">
+            <summary>
+                Static helper class to throw a new <see cref="T:System.Exception" />.
+            </summary>
+        </member>
+        <member name="T:Neo4j.AspNet.Identity.Throw.ArgumentException">
+            <summary>
+                Static helper class to throw a new <see cref="T:System.ArgumentException" />
+            </summary>
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Throw.ArgumentException.IfNull``1(``0,System.String)">
+            <summary>Throws an <see cref="T:System.ArgumentException" /> if the <paramref name="obj" /> given is <c>null</c>.</summary>
+            <typeparam name="T">Must be a class.</typeparam>
+            <param name="obj">The object to check.</param>
+            <param name="parameterName">The name of the parameter the <paramref name="obj" /> was in.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the <paramref name="obj" /> given is <c>null</c>.</exception>
+        </member>
+        <member name="M:Neo4j.AspNet.Identity.Throw.ArgumentException.IfNullOrWhiteSpace(System.String,System.String)">
+            <summary>Throws an <see cref="T:System.ArgumentException" /> if the <paramref name="s" /> given is <c>null</c> or whitespace.</summary>
+            <param name="s">The string to check.</param>
+            <param name="parameterName">The name of the parameter the <paramref name="s" /> was in.</param>
+            <exception cref="T:System.ArgumentException">Thrown if the <paramref name="s" /> given is <c>null</c> or whitespace.</exception>
+        </member>
+    </members>
+</doc>

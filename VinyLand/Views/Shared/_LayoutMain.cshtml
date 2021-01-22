@@ -1,0 +1,281 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>VINYLAND - Buy and trade vinyls</title>
+    <link href="~/Content/MainPage/bootstrap_mp.min.css" rel="stylesheet"> 
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="~/Content/MainPage/simple-line-icons.css" rel="stylesheet">
+    <link href="~/Content/MainPage/mp_css.css" rel="stylesheet">
+   
+
+</head>
+
+<body id="page-top">
+
+
+
+    <a class="menu-toggle rounded" href="#">
+        <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a class="js-scroll-trigger" href="#page-top">VinyLand</a>
+
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#page-top">Get Started</a>
+            </li>
+
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#services">Services</a>
+
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#about">About</a>
+            </li>
+
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#portfolio">Recents</a>
+            </li>
+
+
+
+            <li class="sidebar-nav-item special-nav-item">@Html.ActionLink("REGISTER", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li class="sidebar-nav-item special-nav-item">@Html.ActionLink("LOGIN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+        </ul>
+    </nav>
+
+    <header class="masthead d-flex">
+
+        <div class="container text-center my-auto">
+            <img src="~/Content/Pictures/vinyl.svg" class="logo" alt="Logo">
+            <h1 class="mb-1 " style="color:#FFC107">VINYL LAND</h1>
+            <h3 class="mb-5 " style="color:#FFC107">
+                <em>Site for trading and buying vinyl records</em>
+            </h3>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" @Html.ActionLink("REGISTER", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</a>
+            </h3>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" @Html.ActionLink("LOGIN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</a>
+
+
+
+        </div>
+        <div class="overlay"></div>
+    </header>
+
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-0">Services</h3>
+                <h2 class="mb-5">What We Offer</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                    </span>
+                    <h4>
+                        <strong>BUY</strong>
+                    </h4>
+                    <p class="text-faded mb-0">Find your favourite record and buy it!</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon>
+                    </span>
+                    <h4>
+                        <strong>TRADE</strong>
+                    </h4>
+                    <p class="text-faded mb-0">You dont whant tou buy new vinyl? Just trade yours for old one!</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+
+                        <ion-icon name="finger-print-outline"></ion-icon>
+                    </span>
+                    <h4>
+                        <strong>RECOMMENDATION</strong>
+                    </h4>
+                    <p class="text-faded mb-0">
+                        Get recommendation of genres you like
+
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <ion-icon name="person-add-outline"></ion-icon>
+                    </span>
+                    <h4>
+                        <strong>FRIENDSHIP</strong>
+                    </h4>
+                    <p class="text-faded mb-0">Add friends and view first their records</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="content-section bg-light video" id="about">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-10 mx-auto ">
+                    <h2 class="VLH">VINYL LAND is the perfect place for you to find your favourite records and vinyls!</h2>
+                    <p class="lead mb-5 VLL">
+                        You can follow other users, and get recommendation for their vinyls and their taste of music!
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   
+    <section class="content-section" id="portfolio">
+        <div class="container">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">VINYLS</h3>
+                <h2 class="mb-5">RECENT RECORDS FOR SALE</h2>
+            </div>
+            <div class="row no-gutters">
+
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">PAUL KALKBRENNER</div>
+                                <p class="mb-0"> Parts of Life</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/Pictures/mp_album1.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">ABBA GOLD </div>
+                                <p class="mb-0">Greates Hits (1981)</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/Pictures/mp_album2.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">2PAC</div>
+                                <p class="mb-0">
+                                     All Eyez On Me! (1996)
+                                </p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/Pictures/mp_album3.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">GUNS AND ROSES</div>
+                                <p class="mb-0">Appetite for Destruction (1987) </p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/Pictures/mp_album5.jpg" alt="">
+                    </a>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+  
+    <footer class="footer text-center" style="background-color:#303638">
+        <div class="container" >
+            
+            <p class="text-muted small mb-0">Copyright &copy; MARS software 2020</p>
+        </div>
+    </footer>
+
+
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+  
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+  
+    <script src="~/Content/MainPage/jquery.min.js"></script>
+    <script src="~/Content/MainPage/bootstrap.bundle.min.js "></script>
+    <script src="~/Content/MainPage/jquery.easing.min.js"></script>
+    <script src="~/Content/MainPage/stylish-portfolio.min.js"></script>
+
+    <div> @RenderBody()</div>
+
+</body>
+<style>
+
+    ion-icon {
+        font-size: 64px;
+        padding-top: 20px;
+    }
+
+    .video {
+        background: linear-gradient(90deg,rgba(255,255,255,.1) 0,rgba(255,255,255,.1) 100%),url(/Content/Pictures/ezgif.com-gif-maker.gif); /* pozadinska slika main-page-a */
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover
+    }
+
+    .round-multiline {
+        display: table-cell;
+        height: 130px;
+        width: 500px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0%;
+        background: #303638e3;
+        color: white;
+    }
+
+    .VLH {
+        color: #FFC107;
+        background-color: #30363891;
+        border-radius: 10%;
+    }
+
+    .VLL {
+        border-radius: 15%;
+        color: #FFC107;
+        background-color: #30363899;
+    }
+    .logo
+    {
+        height:100px;
+    }
+</style>
+</html>

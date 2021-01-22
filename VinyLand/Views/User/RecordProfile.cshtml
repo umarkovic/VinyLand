@@ -1,0 +1,111 @@
+﻿
+@model VinyLand.Models.Ad
+
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<head>
+
+</head>
+<body>
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <div class="row">
+
+                <div class="col-md-8 ">
+                    <img class="img-fluid" src="@Url.Content(Model.Record.Picture)" alt="" style="" width="600px" height="600px">
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="my-3">Record details</h3>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Record.Title)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Record.Title)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Label.NameOfLabel)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Label.NameOfLabel)
+                        </dd>
+
+
+                        <dt>
+                            @Html.DisplayName("Condition")
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Condition.condition)
+                        </dd>
+                        @if (Model.User.Email != User.Identity.Name)
+                        {
+                            @Html.ActionLink("Buy record", "BuyRecord", new { ad = VinyLand.Models.Ad.Serialize(Model) }, new { @class = "btn btn-primary" })
+
+                        }
+                    </dl>
+                    <h3 class="my-3">Owner details</h3>
+                    <ul>
+                        <li> <strong> @Model.User.PersonSurName </strong></li>
+                        <li> <strong>Username:</strong> @Model.User.Nickname</li>
+                        <li><strong>Email:</strong> @Model.User.Email</li>
+
+
+
+                    </ul>
+                    <h3 class="my-3">Songs</h3>
+                    @if (Model.Songs.Count != 0)
+                    {
+                        <ul class="list-group song">
+
+                            @{
+                                    var songNumber = 0;
+                                    foreach (var item in Model.Songs)
+                                    {
+                                    <li class="list-group-item active song" style="background-color: #FFC107; border-color: #FFC107;  color: black; text-align:center;"> <strong>Song #@songNumber: </strong>@item.NameOfSong <strong> Duration:</strong> @item.Duration</li>
+                                    songNumber++;
+                                }
+
+                            }
+
+
+
+                        </ul>
+                    }
+
+
+
+
+                </div>
+                
+               
+
+            </div>
+
+            
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+<style>
+    .song {
+        background-color: #FFC107;
+        border-color: #FFC107;
+        color: black;
+    }
+
+</style>

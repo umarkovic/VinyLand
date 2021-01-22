@@ -1,0 +1,262 @@
+﻿
+@model VinyLand.ModelView.HomeSuggestions
+
+
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <h1 class="font-weight-light">Suggestions</h1>
+            <p class="lead">Check this vinyl suggestions, maybe you find that record you been searching for!</p>
+            <hr />
+
+
+
+            <!-- Page Heading -->
+            <h1 class="my-4">
+                Records
+                <small>you maybe like </small>
+            </h1>
+
+
+            <div class="row">
+
+                <div class="col-lg-3">
+
+                    <h1 class="my-4">Categories</h1>
+                    <div class="list-group">
+
+                        
+                        <a href="#records_suggested" class="list-group-item">Suggestions</a>
+                        <a href="#record_of_friends" class="list-group-item">Records your friends posted</a>
+                    </div>
+
+                </div>
+                <!-- /.col-lg-3 -->
+
+                <div class="col-lg-9" id="records_following">
+
+                    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner" role="listbox">
+                            <a class="carousel-item active" href='@Url.Action("AddRecord", "User")'>
+                                <img class="d-block img-fluid" src="~/Content/carousel/carousel0_add_record.gif" alt="Add record">
+                            </a>
+                            <a class="carousel-item" href='@Url.Action("UserOffers", "User", new { email = User.Identity.Name})'>
+                                <img class="d-block img-fluid" src="~/Content/carousel/carousel2_offers.gif" alt="Offers">
+                            </a>
+                            <a class="carousel-item" href="@Url.Action("UserProfile", "User", new { email = User.Identity.Name })">
+                                <img class="d-block img-fluid" src="~/Content/carousel/carousel1_Profile.gif" alt="Profile">
+                            </a>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div>
+
+
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.col-lg-9 -->
+
+            </div>
+            <!-- /.row -->
+            <hr id="records_suggested" />
+            <div class="row">
+                @if (Model.AdsFollowing.Count != 0 && Model.Ads.Count != 0)
+                {
+
+                    foreach (var item in Model.Ads)
+                    {
+
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="@Url.Content(@item.Record.Picture)" alt="" width="400px" height="400px"></a>
+                                <div class="card-body">
+
+                                    <h4 class="card-title">
+
+                                        @Html.ActionLink(item.Record.Title, "RecordProfile", new { ad = VinyLand.Models.Ad.Serialize(item) }, new { @class = "" })
+                                        <p class="card-text">@item.Artist.Name</p>
+                                    </h4>
+                                    <p> @item.User.Nickname</p>
+                                    <h5>$@item.Record.Price </h5>
+                                    @if (item.Condition.condition.ToString() == "New")
+                                    {<p style="color:green">New</p>}
+                                    else
+                                    { <p style="color:darkred">Used</p>}
+
+
+                                </div>
+                                <div class="card-footer">
+                                    @Html.ActionLink("Record Profile", "RecordProfile", new { ad = VinyLand.Models.Ad.Serialize(item) }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("User Profile ", "UserProfile", new { email = item.User.Email }, new { @class = "btn btn-primary" })
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+                }
+                else
+                { <hr />
+
+                    <h3> You didnt add any record, or any friend. Try searching for records in Discover and follow some user to get your suggestions</h3>
+                    <hr />}
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            @if (Model.AdsFollowing.Count != 0 && Model.Ads.Count != 0)
+            {
+               
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+
+
+
+
+            <div class="container" id="record_of_friends">
+                @if (Model.AdsFollowing.Count != 0 && Model.Ads.Count != 0)
+                {
+                    <hr />
+                  
+                    <h1 class="my-4">
+                        Records
+                        <small>that your friends posted</small>
+                    </h1>
+                    <hr />
+                }
+                @if (Model.AdsFollowing.Count != 0 && Model.Ads.Count != 0)
+                {
+                    <div class="row">
+                        @foreach (var item in Model.AdsFollowing)
+                        {
+
+
+
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100">
+                                    <a href="#"><img class="card-img-top" src="@Url.Content(@item.Record.Picture)" width="600px" height="600px"></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+
+                                            @Html.ActionLink(item.Record.Title, "RecordProfile", new { ad = VinyLand.Models.Ad.Serialize(item) }, new { @class = "" })
+                                            <p class="card-text">@item.Artist.Name</p>
+
+                                        </h4>
+                                        <p> @item.User.Nickname</p>
+                                        <h5>$@item.Record.Price </h5>
+                                        @if (item.Condition.condition.ToString() == "New")
+                                        {<p style="color:green">New</p>}
+                                        else
+                                        { <p style="color:darkred">Used</p>}
+                                    </div>
+                                    <div class="card-footer">
+                                        @Html.ActionLink("Record Profile", "RecordProfile", new { ad = VinyLand.Models.Ad.Serialize(item) }, new { @class = "btn btn-primary" })
+                                        @Html.ActionLink("User Profile ", "UserProfile", new { email = item.User.Email }, new { @class = "btn btn-primary" })
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                }
+
+
+
+            </div>
+            @if (Model.AdsFollowing.Count != 0 && Model.Ads.Count != 0)
+            {
+               
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+        </div>
+
+
+
+       
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
+
+
+

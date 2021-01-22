@@ -1,0 +1,73 @@
+﻿@model IEnumerable<VinyLand.Models.Ad>
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+</head>
+    <body>
+
+
+        <div class="card border-0 shadow my-5">
+            <div class="card-body p-5">
+                <h1 class="font-weight-light">Fixed Full Page Background Image</h1>
+                <p class="lead">In this snippet, the background image is fixed to the body element. Content on the page will scroll, but the image will remain in a fixed position!</p>
+                <p class="lead">Scroll down...</p>
+
+                <div style="">
+
+                    <table class="table">
+                        <tr>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <label>@item.Record.Title</label>
+                                    <label>@item.Record.Format</label>
+                                </td>
+                                <td>
+                                    <label>@item.Artist.Name</label>
+
+                                </td>
+                                <td>
+                                    <label>@item.Label.NameOfLabel</label>
+
+                                </td>
+
+                                <td> @Html.ActionLink("Record Profile", "RecordProfile", new { ad = VinyLand.Models.Ad.Serialize(item) }, new { @class = "btn btn-primary" }) </td>
+                                <td> @Html.ActionLink("User Profile", "UserProfile", new { email = item.User.Email }, new { @class = "btn btn-primary" }) </td>
+
+
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+                <p class="lead mb-0">You've reached the end!</p>
+            </div>
+        </div>
+
+
+
+
+
+    </body>
+
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
+</html>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+

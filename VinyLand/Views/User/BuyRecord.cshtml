@@ -1,0 +1,148 @@
+﻿@model VinyLand.ModelView.RecBuy
+
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BuyRecord</title>
+</head>
+<body>
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5 ">
+            <div class="row">
+                <div style="width:60%">
+
+                    @using (Html.BeginForm())
+
+                    {
+                        @Html.HiddenFor(model => model.User.Email)
+                        @Html.HiddenFor(model => model.recordSeller)
+                        @Html.HiddenFor(model => model.Record.Price)
+                        @Html.AntiForgeryToken()
+                        if (Model.Record.Condition.Replacement)
+                        {
+                            <h4>This specific record can be paid but also traded, so choose type of offer that will be sent </h4>
+                            <hr />
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label"><h3>Trade</h3></label>
+                                <div class="col-lg-10">
+                                    @Html.RadioButtonFor(model => model.radio, "Trade", new { @class = "drop form-control radio-inline", id = "trade-button" })
+                                    @Html.DropDownListFor(model => model.Record.Title, Model.slreplace, "Choose one of your records to trade", new { @class = "ddl form-control  dropdown-toggle" })
+                                    @Html.ValidationMessageFor(model => model.radio, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.Record.Title, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label"><h3>Buy</h3></label>
+                                <div class="col-lg-10">
+                                    @Html.RadioButtonFor(model => model.radio, "Buy", new { @class = "form-control radio-inline", id = "buy-button" })
+                                    @Html.Label("" + Model.Record.Price + "$", new { @class = "price form-control" })
+                                    @Html.ValidationMessageFor(model => model.radio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+                        }
+                        else
+                        {
+                            <h3>This specific record cant be traded, so this is price of record </h3>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label"><h3>Buy</h3></label>
+                                <div class="col-lg-10">
+                                    @Html.Label("" + Model.Record.Price + "$", new { @class = "form-control lab" })
+                                </div>
+                            </div>
+                        }
+                      
+                        <button type="button" class="btn btn-primary fa fa-star" data-toggle="modal" data-target="#Acc" style="margin-left:35%"> Make offer</button>
+                      
+
+                        <div class="modal fade" id="Acc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Offer</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4>Are you sure about sending offer?</h4>
+                                    </div>
+                                        <div class="modal-footer">
+                                            <button  class="btn btn-primary"type="submit"> Make offer </button>
+                                            <button class="btn btn-primary" type="button" data-dismiss="modal"> Abort </button>
+                                        </div>
+                                       
+                                   
+
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+                <div style="width:35%; padding-left:5%;">
+                    
+                            <a href="#"><img class="card-img-top" src=@Url.Content(Model.Record.Picture) alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">@Model.Record.Title</a>
+                                </h4>
+                                <h5>Buying from: @Model.User.Email</h5>
+                            </div>
+                       
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+    $('#trade-button').click(function () {
+        $('.price').css("background-color", "grey")
+        $('.ddl').prop('disabled', false)
+    });
+
+    $('#buy-button').click(function () {
+        $('.ddl').prop('disabled', true)
+        $('.price').css("background-color", "white")
+    });
+</script>
+<style>
+    .price {
+        text-align: center;
+        font-size: large;
+    }
+
+    .ddl {
+        text-align: center;
+    }
+
+    select {
+        font-size: large;
+        text-align-last: center;
+    }
+</style>

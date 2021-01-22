@@ -1,0 +1,82 @@
+﻿@model VinyLand.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+<html>
+<head>
+    <link href="~/Content/MainPage/LoginPage/register-styles.css?1422585377" rel="stylesheet" />
+    <link href="~/Content/MainPage/LoginPage/bootstrap-register.min.css" rel="stylesheet">
+    <link href="~/Content/MainPage/simple-line-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body">
+                        <img src="~/Content/Pictures/vinyl.svg" class="logo text-center" alt="Logo">
+                        <h5 class="card-title text-center">Create new account</h5>
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h4 class="card-title text-center">REGISTER</h4>
+                            <hr />
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+                            <div class="form-label-group">
+                                @Html.TextBoxFor(m => m.NickName, new { @class = "form-control" })
+                                <label for="inputEmail">Username</label>
+                            </div>
+
+
+
+                            <div class="form-label-group">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                <label for="inputEmail">Email address</label>
+                            </div>
+                            <div class="form-label-group">
+                                @Html.TextBoxFor(m => m.PersonName, new { @class = "form-control" })
+                                <label for="inputEmail">Name</label>
+                            </div>
+                            <div class="form-label-group">
+                                @Html.TextBoxFor(m => m.PersonSurname, new { @class = "form-control" })
+                                <label for="inputEmail">Surname</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                <label for="inputPassword">Password</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                <label for="inputConfirmPassword">Confirm password</label>
+                            </div>
+
+
+                            <input type="submit" value="REGISTER" class="btn btn-lg btn-primary btn-block text-uppercase" />
+                            <hr class="my-4">
+                            @Html.ActionLink("LOGIN", "Login", routeValues: null, htmlAttributes: new { @class = " btn btn-lg btn-primary btn-block text-uppercase" })
+                            @Html.ActionLink("Home page", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-lg btn-primary btn-block text-uppercase " })
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .logo {
+        height: 40px;
+        padding-left: 45%;
+        padding-right: 45%;
+    }
+</style>

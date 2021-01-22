@@ -1,0 +1,453 @@
+﻿
+@model VinyLand.ModelView.UserAds
+
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<!-- TREBA u MODELU: int broj njegovih ploca, broj prodatih, ?? FAV GENRE-->
+
+
+
+<body>
+
+
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+
+
+
+            @*if (Model.User.Email == User.Identity.Name)
+        {
+            <h2 class="text-center" style=" padding-bottom: 50px;">Your profile</h2>
+        }
+        else
+        {
+            <h2 class="text-center" style=" padding-bottom: 50px;">User profile</h2>
+        }
+
+        <hr />
+            *@
+
+            <div class="row">
+
+                <div class="col-md-8 profile-picture-div" style="">
+                    <img class="img-fluid profile-pic" src="@Url.Content(Model.User.Picture)" alt="" style="border-radius:50%; ">
+                    @if (Model.User.Email == User.Identity.Name)
+                    {
+                        <div> @Html.ActionLink("Edit Profile", "EditProfile", new { email = Model.User.Email }, new { @class = "btn btn-primary edit-button" }) </div>
+                    }
+                    else if (Model.User.SecurityStamp.Equals("1"))
+                    {
+                        @Html.ActionLink("Unfollow user", "UnFollowUser", new { idObject = Model.User.Email }, new { @class = "btn btn-primary" })
+                    }
+                    else
+                    { @Html.ActionLink("Follow user", "FollowUser", new { idObject = Model.User.Email }, new { @class = "btn btn-primary" })}
+                </div>
+
+                <div class="col-md-4" style="max-width: 49.333333%;">
+                    <h3 class="my-3">User info</h3>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.User.Nickname)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.User.Nickname)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.User.PersonName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.User.PersonName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.User.PersonSurName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.User.PersonSurName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.User.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.User.Email)
+                        </dd>
+
+
+
+
+
+                    </dl>
+                    <div class="nav-field" style="font-weight:bold; color:#FFC107">SOLD</div>
+                    <div class="nav-value">@Model.User.SoldRecords records</div>
+
+
+
+                    <div class="nav-field" style="font-weight:bold;color:#FFC107">FAVOURITE GENRE</div>
+                    <div class="nav-value">@Model.FavGenre</div>
+
+                    <h3 class="my-3">User Stats</h3>
+                    <ul class=" nav  nav-tabs-v2">
+                        <li class=" " style="padding-right:10%; ">
+
+                            <div> @Html.ActionLink("Followers " + Model.Followers, "UserFollowers", new { email = Model.User.Email }, new { @class = "btn btn-primary follow" }) </div>
+
+
+                        </li>
+                        <li class="" style="padding-right:10%">
+
+                            <div> @Html.ActionLink("Following " + Model.Following, "UserFollowing", new { email = Model.User.Email }, new { @class = "btn btn-primary follow" }) </div>
+
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <hr />
+            @if (Model.User.Email == User.Identity.Name)
+            {
+
+                <h4>You have : @Model.OfferNum offers</h4>
+            }
+            else
+            {
+                <h4> User's records</h4>
+            }
+
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    @if (Model.User.Email == User.Identity.Name)
+                    {
+
+                        @Html.ActionLink("See offers for your records", "UserOffers", new { email = Model.User.Email }, new { @class = "btn btn-primary" });
+                    }
+                </div>
+
+
+            </div>
+
+
+            @if (Model.Ads.Count == 0)
+            {
+                if (Model.User.Email == User.Identity.Name)
+                {
+                    <h4>User dont have any record</h4>
+                }
+                else
+                {
+                    <h4>You dont have any record to sell</h4>
+                }
+            }
+            else
+            {
+                <table class="table table-striped table table-dark table-condensed voc_list ">
+
+                    <thead>
+                        <tr>
+                            <th style="width:15%;">Cover</th>
+                            <th style="width:20%;">Title</th>
+                            <th style="width:15%;">Artist</th>
+                            <th style="width:10%;">Format</th>
+                            <th style="width:10%;">Condition</th>
+                            <th style="width:15%;"></th>
+                            <th style="width:15%;"></th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model.Ads.Count == 0)
+                        {
+                            <h4>You dont have any record to sell</h4>
+                                    }
+                                    else
+                                    {
+                                        var i = 0;
+                                        foreach (var item in Model.Ads)
+                                        {
+
+
+                                <tr class="listview">
+                                    <td style="padding:15px 0px 15px 0px; resize:50px;">
+                                        <a href="xy" title="">
+                                            <img class="img-responsive voc_list_preview_img" style="width:200px; height:200px; padding-left:10px; " src="@Url.Content(item.Record.Picture)">
+                                        </a>
+                                    </td>
+
+                                    <td>@item.Record.Title</td>
+                                    <td>@item.Artist.Name</td>
+                                    <td>@item.Record.Format</td>
+                                    <td>@item.Label.NameOfLabel</td>
+                                    <td> @Html.ActionLink("Record Profile", "RecordProfile", new { ad = VinyLand.Models.Ad.Serialize(item) }, new { @class = "btn btn-primary" }) </td>
+                                    @if (Model.User.Email == User.Identity.Name)
+                                    {
+
+                                        <td>
+                                            <button type="button" id="btnDelete " class="btn btn-primary " data-toggle="modal" data-target="#s@(i+1)"> Delete</button>
+
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit ", "EditRecord", new { RecordId = item.Record.Id }, new { @class = "btn btn-primary" })
+                                        </td>
+                                    }
+                                </tr>
+
+                                i++;
+
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+             
+                var j = 0;
+                foreach (var item in Model.Ads)
+                {
+                <div class="modal fade" id="s@(j+1)" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete this record? </p>
+                            </div>
+                            <div class="modal-footer">
+                                <div> @Html.ActionLink("Delete Record ", "DeleteRecord", new { RecordId = item.Record.Id }, new { @class = "btn btn-primary" })</div>  <!--dugme koje okida modal-->
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    j++;
+                }
+
+
+
+
+
+
+
+
+
+            }
+            @if (Model.User.Email != User.Identity.Name)
+            {
+
+                <div>
+                    @using (Html.BeginForm("AddComment", "User", FormMethod.Post, new { }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.comm.Subject.Email)
+                        @Html.HiddenFor(model => model.comm.Object.Email)
+
+                        <h4>Add comment</h4>
+                        <hr />
+
+                        <div class="panel-body">
+
+
+
+                            @Html.TextAreaFor(model => model.comm.Content, new { id = "fname", @class = "komentar form-control" })
+
+                            <br>
+                            <input type="submit" id="buttonID" class="btn btn-primary pull-right " value="Postavi" />
+
+                            <div class="clearfix"></div>
+
+                            <ul class="media-list">
+                            </ul>
+
+
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-offset-2 col-md-10">
+
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            }
+            <h3>Comments</h3>
+            @{
+                if (Model.Comments.Count() == 0)
+                {
+                    <label class="text-danger"> There are no comments</label>
+                }
+            }
+        </div>
+        <hr />
+        <div class="scrollingDiv">
+
+
+            @foreach (var it in Model.Comments)
+            {
+
+
+
+
+                <li class="media" style="padding-left: 30px;">
+                    <a href="#" class="pull-left">
+                        <img src="@Url.Content(it.Subject.Picture)" alt="" class="avatar2 img-circle ">
+
+                    </a>
+                    <div class="media-body">
+
+                        <strong class="text-secondary">@it.Subject.Nickname</strong>
+                        <span class="text-muted pull-right">
+                            <small class="badge badge-pill badge-secondary text-wrap" style="width: 6rem; margin-left:150px;">@it.DateTime</small>
+                        </span>
+                        <p>
+                            @it.Content
+
+                        </p>
+                    </div>
+
+                </li>
+                <hr />
+            }
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+</body>
+
+<style>
+
+    .follow {
+    }
+
+    body {
+        min-width: 1000px;
+         Suppose you want minimum width of 1000px _width: expression( document.body.clientWidth > 1000 ? "1000px" : "auto" ); /* sets max-width for IE6 */
+    }
+
+    .edit-button {
+        margin-left: 20%;
+        margin-top: 5%;
+    }
+
+    .profile-picture-div {
+        max-width: 50.666667%;
+        padding-top: 20px;
+        padding-left: 75px;
+    }
+
+    .table-image {
+        vertical-align: middle;
+    }
+
+    td, th {
+        vertical-align: middle;
+        width: 10%;
+    }
+
+
+
+
+
+    .cornerimage {
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+
+
+    .first {
+        display: inline;
+        width: 50%;
+        height: 100%;
+    }
+
+    .second {
+        display: inline;
+        height: 100%;
+        width: 50%;
+    }
+
+    .avatar2 {
+        vertical-align: middle;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: solid black 1px;
+       
+    }
+
+    .media-body {
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    div.scrollingDiv {
+        max-height: 650px;
+        width: 100%;
+        FLOAT: left;
+        overflow-y: scroll;
+    }
+
+    .komentar {
+        width: 100%;
+        height: 50px;
+    }
+    .profile-pic {
+        max-height:400px;
+        max-height:400px;
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#buttonID").attr("disabled", "disabled");
+    });
+
+    $(function () {
+        $("#fname").bind("change keyup",
+            function () {
+                if ($("#fname").val().length > 0)
+                    $(this).closest("form").find(":submit").removeAttr("disabled");
+                else
+                    $(this).closest("form").find(":submit").attr("disabled", "disabled");
+            });
+    });
+
+   
+    
+</script>
+

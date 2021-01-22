@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{134F5C1C-0CF6-4F74-A45D-04970B5E3284}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VinyLand</RootNamespace>
+    <AssemblyName>VinyLand</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Neo4j.AspNet.Identity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Neo4j.AspNet.Identity.2.0.2\lib\net452\Neo4j.AspNet.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Neo4j.Driver, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Neo4j.Driver.1.5.2\lib\net452\Neo4j.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Neo4jClient, Version=3.0.1.15, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Neo4jClient.3.0.1.15\lib\net46\Neo4jClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.2\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Ad.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Condition.cs" />
+    <Compile Include="Models\DataLayer.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Label.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Offer.cs" />
+    <Compile Include="Models\Record.cs" />
+    <Compile Include="Models\Release.cs" />
+    <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="ModelView\AdFilter.cs" />
+    <Compile Include="ModelView\HomeSuggestions.cs" />
+    <Compile Include="ModelView\RecBuy.cs" />
+    <Compile Include="ModelView\UserAds.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-default.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BootStrapNewTheme\.gitignore" />
+    <Content Include="Content\BootStrapNewTheme\css\heroic-features.css" />
+    <Content Include="Content\BootStrapNewTheme\gulpfile.js" />
+    <Content Include="Content\BootStrapNewTheme\index.html" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\jquery\jquery.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\jquery\jquery.slim.js" />
+    <Content Include="Content\BootStrapNewTheme\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\carousel\carousel0_add_record.gif" />
+    <Content Include="Content\carousel\carousel1_Profile.gif" />
+    <Content Include="Content\carousel\carousel2_offers.gif" />
+    <Content Include="Content\crop\crop\.gitignore" />
+    <Content Include="Content\crop\crop\application\cache\index.html" />
+    <Content Include="Content\crop\crop\application\config\autoload.php" />
+    <Content Include="Content\crop\crop\application\config\config.php" />
+    <Content Include="Content\crop\crop\application\config\constants.php" />
+    <Content Include="Content\crop\crop\application\config\database.php" />
+    <Content Include="Content\crop\crop\application\config\doctypes.php" />
+    <Content Include="Content\crop\crop\application\config\foreign_chars.php" />
+    <Content Include="Content\crop\crop\application\config\hooks.php" />
+    <Content Include="Content\crop\crop\application\config\index.html" />
+    <Content Include="Content\crop\crop\application\config\memcached.php" />
+    <Content Include="Content\crop\crop\application\config\migration.php" />
+    <Content Include="Content\crop\crop\application\config\mimes.php" />
+    <Content Include="Content\crop\crop\application\config\profiler.php" />
+    <Content Include="Content\crop\crop\application\config\routes.php" />
+    <Content Include="Content\crop\crop\application\config\smileys.php" />
+    <Content Include="Content\crop\crop\application\config\user_agents.php" />
+    <Content Include="Content\crop\crop\application\controllers\Crop.php" />
+    <Content Include="Content\crop\crop\application\controllers\index.html" />
+    <Content Include="Content\crop\crop\application\core\index.html" />
+    <Content Include="Content\crop\crop\application\helpers\index.html" />
+    <Content Include="Content\crop\crop\application\hooks\index.html" />
+    <Content Include="Content\crop\crop\application\index.html" />
+    <Content Include="Content\crop\crop\application\language\english\index.html" />
+    <Content Include="Content\crop\crop\application\language\index.html" />
+    <Content Include="Content\crop\crop\application\libraries\index.html" />
+    <Content Include="Content\crop\crop\application\logs\index.html" />
+    <Content Include="Content\crop\crop\application\models\index.html" />
+    <Content Include="Content\crop\crop\application\third_party\index.html" />
+    <Content Include="Content\crop\crop\application\views\errors\cli\error_404.php" />
+    <Content Include="Content\crop\crop\application\views\errors\cli\error_db.php" />
+    <Content Include="Content\crop\crop\application\views\errors\cli\error_exception.php" />
+    <Content Include="Content\crop\crop\application\views\errors\cli\error_general.php" />
+    <Content Include="Content\crop\crop\application\views\errors\cli\error_php.php" />
+    <Content Include="Content\crop\crop\application\views\errors\cli\index.html" />
+    <Content Include="Content\crop\crop\application\views\errors\html\error_404.php" />
+    <Content Include="Content\crop\crop\application\views\errors\html\error_db.php" />
+    <Content Include="Content\crop\crop\application\views\errors\html\error_exception.php" />
+    <Content Include="Content\crop\crop\application\views\errors\html\error_general.php" />
+    <Content Include="Content\crop\crop\application\views\errors\html\error_php.php" />
+    <Content Include="Content\crop\crop\application\views\errors\html\index.html" />
+    <Content Include="Content\crop\crop\application\views\errors\index.html" />
+    <Content Include="Content\crop\crop\application\views\index.html" />
+    <Content Include="Content\crop\crop\application\views\layouts\index.php" />
+    <Content Include="Content\crop\crop\assets\bootstrap.min.css" />
+    <Content Include="Content\crop\crop\assets\bootstrap.min.js" />
+    <Content Include="Content\crop\crop\assets\croppie.css" />
+    <Content Include="Content\crop\crop\assets\croppie.js" />
+    <Content Include="Content\crop\crop\assets\jquery.min.js" />
+    <Content Include="Content\crop\crop\index.php" />
+    <Content Include="Content\crop\crop\license.txt" />
+    <Content Include="Content\crop\crop\system\core\Benchmark.php" />
+    <Content Include="Content\crop\crop\system\core\CodeIgniter.php" />
+    <Content Include="Content\crop\crop\system\core\Common.php" />
+    <Content Include="Content\crop\crop\system\core\compat\hash.php" />
+    <Content Include="Content\crop\crop\system\core\compat\index.html" />
+    <Content Include="Content\crop\crop\system\core\compat\mbstring.php" />
+    <Content Include="Content\crop\crop\system\core\compat\password.php" />
+    <Content Include="Content\crop\crop\system\core\compat\standard.php" />
+    <Content Include="Content\crop\crop\system\core\Config.php" />
+    <Content Include="Content\crop\crop\system\core\Controller.php" />
+    <Content Include="Content\crop\crop\system\core\Exceptions.php" />
+    <Content Include="Content\crop\crop\system\core\Hooks.php" />
+    <Content Include="Content\crop\crop\system\core\index.html" />
+    <Content Include="Content\crop\crop\system\core\Input.php" />
+    <Content Include="Content\crop\crop\system\core\Lang.php" />
+    <Content Include="Content\crop\crop\system\core\Loader.php" />
+    <Content Include="Content\crop\crop\system\core\Log.php" />
+    <Content Include="Content\crop\crop\system\core\Model.php" />
+    <Content Include="Content\crop\crop\system\core\Output.php" />
+    <Content Include="Content\crop\crop\system\core\Router.php" />
+    <Content Include="Content\crop\crop\system\core\Security.php" />
+    <Content Include="Content\crop\crop\system\core\URI.php" />
+    <Content Include="Content\crop\crop\system\core\Utf8.php" />
+    <Content Include="Content\crop\crop\system\database\DB.php" />
+    <Content Include="Content\crop\crop\system\database\DB_cache.php" />
+    <Content Include="Content\crop\crop\system\database\DB_driver.php" />
+    <Content Include="Content\crop\crop\system\database\DB_forge.php" />
+    <Content Include="Content\crop\crop\system\database\DB_query_builder.php" />
+    <Content Include="Content\crop\crop\system\database\DB_result.php" />
+    <Content Include="Content\crop\crop\system\database\DB_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\cubrid\cubrid_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\cubrid\cubrid_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\cubrid\cubrid_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\cubrid\cubrid_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\cubrid\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\ibase\ibase_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\ibase\ibase_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\ibase\ibase_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\ibase\ibase_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\ibase\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\mssql\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\mssql\mssql_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mssql\mssql_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mssql\mssql_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mssql\mssql_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysqli\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysqli\mysqli_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysqli\mysqli_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysqli\mysqli_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysqli\mysqli_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysql\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysql\mysql_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysql\mysql_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysql\mysql_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\mysql\mysql_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\oci8\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\oci8\oci8_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\oci8\oci8_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\oci8\oci8_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\oci8\oci8_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\odbc\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\odbc\odbc_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\odbc\odbc_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\odbc\odbc_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\odbc\odbc_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\pdo_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\pdo_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\pdo_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\pdo_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_4d_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_4d_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_cubrid_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_cubrid_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_dblib_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_dblib_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_firebird_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_firebird_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_ibm_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_ibm_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_informix_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_informix_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_mysql_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_mysql_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_oci_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_oci_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_odbc_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_odbc_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_pgsql_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_pgsql_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_sqlite_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_sqlite_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_sqlsrv_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\pdo\subdrivers\pdo_sqlsrv_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\postgre\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\postgre\postgre_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\postgre\postgre_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\postgre\postgre_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\postgre\postgre_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite3\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite3\sqlite3_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite3\sqlite3_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite3\sqlite3_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite3\sqlite3_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite\sqlite_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite\sqlite_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite\sqlite_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlite\sqlite_utility.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlsrv\index.html" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlsrv\sqlsrv_driver.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlsrv\sqlsrv_forge.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlsrv\sqlsrv_result.php" />
+    <Content Include="Content\crop\crop\system\database\drivers\sqlsrv\sqlsrv_utility.php" />
+    <Content Include="Content\crop\crop\system\database\index.html" />
+    <Content Include="Content\crop\crop\system\fonts\index.html" />
+    <Content Include="Content\crop\crop\system\helpers\array_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\captcha_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\cookie_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\date_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\directory_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\download_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\email_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\file_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\form_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\html_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\index.html" />
+    <Content Include="Content\crop\crop\system\helpers\inflector_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\language_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\number_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\path_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\security_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\smiley_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\string_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\text_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\typography_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\url_helper.php" />
+    <Content Include="Content\crop\crop\system\helpers\xml_helper.php" />
+    <Content Include="Content\crop\crop\system\index.html" />
+    <Content Include="Content\crop\crop\system\language\english\calendar_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\date_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\db_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\email_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\form_validation_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\ftp_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\imglib_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\index.html" />
+    <Content Include="Content\crop\crop\system\language\english\migration_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\number_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\pagination_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\profiler_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\unit_test_lang.php" />
+    <Content Include="Content\crop\crop\system\language\english\upload_lang.php" />
+    <Content Include="Content\crop\crop\system\language\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\Cache.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\Cache_apc.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\Cache_dummy.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\Cache_file.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\Cache_memcached.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\Cache_redis.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\Cache_wincache.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\drivers\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Cache\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Calendar.php" />
+    <Content Include="Content\crop\crop\system\libraries\Cart.php" />
+    <Content Include="Content\crop\crop\system\libraries\Driver.php" />
+    <Content Include="Content\crop\crop\system\libraries\Email.php" />
+    <Content Include="Content\crop\crop\system\libraries\Encrypt.php" />
+    <Content Include="Content\crop\crop\system\libraries\Encryption.php" />
+    <Content Include="Content\crop\crop\system\libraries\Form_validation.php" />
+    <Content Include="Content\crop\crop\system\libraries\Ftp.php" />
+    <Content Include="Content\crop\crop\system\libraries\Image_lib.php" />
+    <Content Include="Content\crop\crop\system\libraries\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Javascript.php" />
+    <Content Include="Content\crop\crop\system\libraries\Javascript\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Javascript\Jquery.php" />
+    <Content Include="Content\crop\crop\system\libraries\Migration.php" />
+    <Content Include="Content\crop\crop\system\libraries\Pagination.php" />
+    <Content Include="Content\crop\crop\system\libraries\Parser.php" />
+    <Content Include="Content\crop\crop\system\libraries\Profiler.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\drivers\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Session\drivers\Session_database_driver.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\drivers\Session_files_driver.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\drivers\Session_memcached_driver.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\drivers\Session_redis_driver.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\index.html" />
+    <Content Include="Content\crop\crop\system\libraries\Session\Session.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\SessionHandlerInterface.php" />
+    <Content Include="Content\crop\crop\system\libraries\Session\Session_driver.php" />
+    <Content Include="Content\crop\crop\system\libraries\Table.php" />
+    <Content Include="Content\crop\crop\system\libraries\Trackback.php" />
+    <Content Include="Content\crop\crop\system\libraries\Typography.php" />
+    <Content Include="Content\crop\crop\system\libraries\Unit_test.php" />
+    <Content Include="Content\crop\crop\system\libraries\Upload.php" />
+    <Content Include="Content\crop\crop\system\libraries\User_agent.php" />
+    <Content Include="Content\crop\crop\system\libraries\Xmlrpc.php" />
+    <Content Include="Content\crop\crop\system\libraries\Xmlrpcs.php" />
+    <Content Include="Content\crop\crop\system\libraries\Zip.php" />
+    <Content Include="Content\crop\crop\user_guide\changelog.html" />
+    <Content Include="Content\crop\crop\user_guide\contributing\index.html" />
+    <Content Include="Content\crop\crop\user_guide\database\caching.html" />
+    <Content Include="Content\crop\crop\user_guide\database\call_function.html" />
+    <Content Include="Content\crop\crop\user_guide\database\configuration.html" />
+    <Content Include="Content\crop\crop\user_guide\database\connecting.html" />
+    <Content Include="Content\crop\crop\user_guide\database\db_driver_reference.html" />
+    <Content Include="Content\crop\crop\user_guide\database\examples.html" />
+    <Content Include="Content\crop\crop\user_guide\database\forge.html" />
+    <Content Include="Content\crop\crop\user_guide\database\helpers.html" />
+    <Content Include="Content\crop\crop\user_guide\database\index.html" />
+    <Content Include="Content\crop\crop\user_guide\database\metadata.html" />
+    <Content Include="Content\crop\crop\user_guide\database\queries.html" />
+    <Content Include="Content\crop\crop\user_guide\database\query_builder.html" />
+    <Content Include="Content\crop\crop\user_guide\database\results.html" />
+    <Content Include="Content\crop\crop\user_guide\database\transactions.html" />
+    <Content Include="Content\crop\crop\user_guide\database\utilities.html" />
+    <Content Include="Content\crop\crop\user_guide\DCO.html" />
+    <Content Include="Content\crop\crop\user_guide\documentation\index.html" />
+    <Content Include="Content\crop\crop\user_guide\general\alternative_php.html" />
+    <Content Include="Content\crop\crop\user_guide\general\ancillary_classes.html" />
+    <Content Include="Content\crop\crop\user_guide\general\autoloader.html" />
+    <Content Include="Content\crop\crop\user_guide\general\caching.html" />
+    <Content Include="Content\crop\crop\user_guide\general\cli.html" />
+    <Content Include="Content\crop\crop\user_guide\general\common_functions.html" />
+    <Content Include="Content\crop\crop\user_guide\general\compatibility_functions.html" />
+    <Content Include="Content\crop\crop\user_guide\general\controllers.html" />
+    <Content Include="Content\crop\crop\user_guide\general\core_classes.html" />
+    <Content Include="Content\crop\crop\user_guide\general\creating_drivers.html" />
+    <Content Include="Content\crop\crop\user_guide\general\creating_libraries.html" />
+    <Content Include="Content\crop\crop\user_guide\general\credits.html" />
+    <Content Include="Content\crop\crop\user_guide\general\drivers.html" />
+    <Content Include="Content\crop\crop\user_guide\general\environments.html" />
+    <Content Include="Content\crop\crop\user_guide\general\errors.html" />
+    <Content Include="Content\crop\crop\user_guide\general\helpers.html" />
+    <Content Include="Content\crop\crop\user_guide\general\hooks.html" />
+    <Content Include="Content\crop\crop\user_guide\general\index.html" />
+    <Content Include="Content\crop\crop\user_guide\general\libraries.html" />
+    <Content Include="Content\crop\crop\user_guide\general\managing_apps.html" />
+    <Content Include="Content\crop\crop\user_guide\general\models.html" />
+    <Content Include="Content\crop\crop\user_guide\general\profiling.html" />
+    <Content Include="Content\crop\crop\user_guide\general\requirements.html" />
+    <Content Include="Content\crop\crop\user_guide\general\reserved_names.html" />
+    <Content Include="Content\crop\crop\user_guide\general\routing.html" />
+    <Content Include="Content\crop\crop\user_guide\general\security.html" />
+    <Content Include="Content\crop\crop\user_guide\general\styleguide.html" />
+    <Content Include="Content\crop\crop\user_guide\general\urls.html" />
+    <Content Include="Content\crop\crop\user_guide\general\views.html" />
+    <Content Include="Content\crop\crop\user_guide\general\welcome.html" />
+    <Content Include="Content\crop\crop\user_guide\genindex.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\array_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\captcha_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\cookie_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\date_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\directory_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\download_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\email_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\file_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\form_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\html_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\index.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\inflector_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\language_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\number_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\path_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\security_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\smiley_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\string_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\text_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\typography_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\url_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\helpers\xml_helper.html" />
+    <Content Include="Content\crop\crop\user_guide\index.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\downloads.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\index.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\troubleshooting.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_120.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_130.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_131.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_132.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_133.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_140.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_141.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_150.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_152.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_153.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_154.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_160.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_161.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_162.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_163.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_170.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_171.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_172.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_200.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_201.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_202.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_203.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_210.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_211.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_212.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_213.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_214.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_220.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_221.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_222.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_223.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_300.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_301.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_302.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_303.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_304.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_305.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_306.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_310.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_311.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_3110.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_312.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_313.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_314.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_315.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_316.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_317.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_318.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_319.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrade_b11.html" />
+    <Content Include="Content\crop\crop\user_guide\installation\upgrading.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\benchmark.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\caching.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\calendar.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\cart.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\config.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\email.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\encrypt.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\encryption.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\file_uploading.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\form_validation.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\ftp.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\image_lib.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\index.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\input.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\javascript.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\language.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\loader.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\migration.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\output.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\pagination.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\parser.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\security.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\sessions.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\table.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\trackback.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\typography.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\unit_testing.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\uri.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\user_agent.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\xmlrpc.html" />
+    <Content Include="Content\crop\crop\user_guide\libraries\zip.html" />
+    <Content Include="Content\crop\crop\user_guide\license.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\appflow.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\at_a_glance.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\features.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\getting_started.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\goals.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\index.html" />
+    <Content Include="Content\crop\crop\user_guide\overview\mvc.html" />
+    <Content Include="Content\crop\crop\user_guide\search.html" />
+    <Content Include="Content\crop\crop\user_guide\searchindex.js" />
+    <Content Include="Content\crop\crop\user_guide\tutorial\conclusion.html" />
+    <Content Include="Content\crop\crop\user_guide\tutorial\create_news_items.html" />
+    <Content Include="Content\crop\crop\user_guide\tutorial\index.html" />
+    <Content Include="Content\crop\crop\user_guide\tutorial\news_section.html" />
+    <Content Include="Content\crop\crop\user_guide\tutorial\static_pages.html" />
+    <Content Include="Content\crop\crop\user_guide\_images\appflowchart.gif" />
+    <Content Include="Content\crop\crop\user_guide\_images\smile.gif" />
+    <Content Include="Content\crop\crop\user_guide\_static\ajax-loader.gif" />
+    <Content Include="Content\crop\crop\user_guide\_static\basic.css" />
+    <Content Include="Content\crop\crop\user_guide\_static\ci-icon.ico" />
+    <Content Include="Content\crop\crop\user_guide\_static\comment-bright.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\comment-close.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\comment.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\css\badge_only.css" />
+    <Content Include="Content\crop\crop\user_guide\_static\css\citheme.css" />
+    <Content Include="Content\crop\crop\user_guide\_static\css\theme.css" />
+    <Content Include="Content\crop\crop\user_guide\_static\doctools.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\down-pressed.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\down.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\file.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\crop\crop\user_guide\_static\images\ci-icon.ico" />
+    <Content Include="Content\crop\crop\user_guide\_static\jquery-3.1.0.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\jquery.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\js\oldtheme.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\js\theme.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\minus.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\plus.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\pygments.css" />
+    <Content Include="Content\crop\crop\user_guide\_static\searchtools.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\underscore-1.3.1.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\underscore.js" />
+    <Content Include="Content\crop\crop\user_guide\_static\up-pressed.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\up.png" />
+    <Content Include="Content\crop\crop\user_guide\_static\websupport.js" />
+    <Content Include="Content\darkTheme\BH.js" />
+    <Content Include="Content\darkTheme\boot.js" />
+    <Content Include="Content\darkTheme\bootstrap.css" />
+    <Content Include="Content\darkTheme\bootstrap.min.css" />
+    <Content Include="Content\darkTheme\bootstrapBH.min.css" />
+    <Content Include="Content\MainPage\bootstrap.bundle.min.js" />
+    <Content Include="Content\MainPage\bootstrap_mp.min.css" />
+    <Content Include="Content\MainPage\jquery.easing.min.js" />
+    <Content Include="Content\MainPage\jquery.min.js" />
+    <Content Include="Content\MainPage\LoginPage\bootstrap-login.min.css" />
+    <Content Include="Content\MainPage\LoginPage\bootstrap-register.min.css" />
+    <Content Include="Content\MainPage\LoginPage\login-styles.css" />
+    <Content Include="Content\MainPage\LoginPage\register-styles.css" />
+    <Content Include="Content\MainPage\mp_css.css" />
+    <Content Include="Content\MainPage\simple-line-icons.css" />
+    <Content Include="Content\MainPage\stylish-portfolio.min.js" />
+    <Content Include="Content\Pictures\avatar.png" />
+    <Content Include="Content\Pictures\black_bg_register.jpg" />
+    <Content Include="Content\Pictures\defaultVinyl.png" />
+    <Content Include="Content\Pictures\ezgif.com-gif-maker.gif" />
+    <Content Include="Content\Pictures\Logo_wix.jpg" />
+    <Content Include="Content\Pictures\mp_album1.jpg" />
+    <Content Include="Content\Pictures\mp_album2.jpg" />
+    <Content Include="Content\Pictures\mp_album3.jpg" />
+    <Content Include="Content\Pictures\mp_album5.jpg" />
+    <Content Include="Content\Pictures\RecordSpinning.mp4" />
+    <Content Include="Content\Pictures\user.jpg" />
+    <Content Include="Content\Pictures\vinyl-stack-bandw.jpg" />
+    <Content Include="Content\Pictures\vinyl-stack-colored.jpg" />
+    <Content Include="Content\Pictures\vinyl.png" />
+    <Content Include="Content\Pictures\vinyl.svg" />
+    <Content Include="Content\Pictures\vinyl1.jpg" />
+    <Content Include="Content\Pictures\vinyl2.jpg" />
+    <Content Include="Content\Pictures\woman_vinyl.jpg" />
+    <Content Include="Content\Pictures\yellow_vinyl_register.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\UserSignedPage\USStyle1.css" />
+    <Content Include="Content\UserSignedPage\UserSignedUp.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\BootStrapNewTheme\.travis.yml" />
+    <Content Include="Content\BootStrapNewTheme\LICENSE" />
+    <Content Include="Content\BootStrapNewTheme\package-lock.json" />
+    <Content Include="Content\BootStrapNewTheme\package.json" />
+    <Content Include="Content\BootStrapNewTheme\README.md" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\jquery\jquery.min.map" />
+    <Content Include="Content\BootStrapNewTheme\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Content\crop\crop\.editorconfig" />
+    <Content Include="Content\crop\crop\.htaccess" />
+    <Content Include="Content\crop\crop\application\.htaccess" />
+    <Content Include="Content\crop\crop\composer.json" />
+    <Content Include="Content\crop\crop\contributing.md" />
+    <Content Include="Content\crop\crop\readme.rst" />
+    <Content Include="Content\crop\crop\system\.htaccess" />
+    <Content Include="Content\crop\crop\system\fonts\texb.ttf" />
+    <Content Include="Content\crop\crop\user_guide\.buildinfo" />
+    <Content Include="Content\crop\crop\user_guide\objects.inv" />
+    <Content Include="Content\crop\crop\user_guide\_downloads\ELDocs.tmbundle.zip" />
+    <Content Include="Content\crop\crop\user_guide\_static\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\crop\crop\user_guide\_static\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\crop\crop\user_guide\_static\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\crop\crop\user_guide\_static\fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\User\UserSignedUp.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
+    <Content Include="Views\User\AddRecord.cshtml" />
+    <Content Include="Views\User\GetFeedSuggestions.cshtml" />
+    <Content Include="Views\User\RecordProfile.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\User\UserFollowing.cshtml" />
+    <Content Include="Views\User\UserFollowers.cshtml" />
+    <Content Include="Views\User\FilterRecords.cshtml" />
+    <Content Include="Views\User\SearchRecords.cshtml" />
+    <Content Include="Views\User\BuyRecord.cshtml" />
+    <Content Include="Views\User\UserOffers.cshtml" />
+    <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\User\EditRecord.cshtml" />
+    <Content Include="Views\User\GetSentOffers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\HomeSuggestions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53175</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44382/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

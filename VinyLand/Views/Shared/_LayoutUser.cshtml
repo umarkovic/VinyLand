@@ -1,0 +1,98 @@
+﻿
+                    <!DOCTYPE html>
+                    <html lang="en">
+
+                    <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>VINYLLAND - Find your record</title>
+
+                        <script src="~/Content/BootStrapNewTheme/vendor/jquery/jquery.min.js"></script>
+                        @Styles.Render("~/Content/BootStrapNewTheme/vendor/bootstrap/css/bootstrap.css?246003")
+                        @Scripts.Render("~/Content/BootStrapNewTheme/vendor/bootstrap/js/bootstrap.bundle.js")
+
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                        <meta name="description" content="">
+                        <meta name="author" content="">
+
+                        <title>Heroic Features - Start Bootstrap Template</title>
+
+                      
+                        <link href="~/Content/BootStrapNewTheme/vendor/bootstrap/js/bootstrap.min.js" rel="stylesheet">
+
+                        <link href="~/Content/BootStrapNewTheme/css/heroic-features.css" rel="stylesheet">
+
+                    </head>
+
+                    <body>
+
+                        
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                            <div class="container">
+                                <img src="~/Content/Pictures/vinyl.svg" class="logo navbar-brand" alt="Logo">
+                                <a class="navbar-brand" href="#">VINYLLAND</a>
+
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarResponsive">
+                                    <ul class="navbar-nav ml-auto" style="padding-right:20px">
+
+
+                                        <li class="nav-item">@Html.ActionLink("Home", "GetFeedSuggestions", "User", new { @class = "nav-link" })</li>
+                                        <li class="nav-item">@Html.ActionLink("Discover Records", "FilterRecords", "User", new { @class = "nav-link" })</li>
+                                        <li class="nav-item">@Html.ActionLink("Search Records", "SearchRecords", "User", new { @class = "nav-link" })</li>
+                                        <li class="nav-item">@Html.ActionLink("Add Record", "AddRecord", "User", new { @class = "nav-link" })</li>
+                                        <li class="nav-item offer">@Html.ActionLink("Sent offers", "GetSentOffers", new { email = User.Identity.Name }, new { @class = "nav-link text-warning" })</li>
+                                        <li class="nav-item offer">@Html.ActionLink("Your offers", "UserOffers", new { email = User.Identity.Name }, new { @class = "nav-link text-warning" })</li>
+
+
+
+
+                                    </ul>
+                                    @Html.Partial("_LoginPartial", new { @class = "nav-link " })
+
+                                </div>
+                            </div>
+                        </nav>
+                        @Scripts.Render("~/Content/BootStrapNewTheme/vendor/jquery/jquery.js")
+                        @Scripts.Render("~/bundles/bootstrap")
+                        @RenderSection("scripts", required: false)
+                        @RenderBody()
+                     
+
+                        <script src="~/Content/BootStrapNewTheme/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+
+                    </body>
+
+                    
+
+                    </html>
+
+                    <style>
+                        body {
+                            background: url(/Content/Pictures/vinyl2.jpg) no-repeat center center fixed;
+                            -webkit-background-size: cover;
+                            -moz-background-size: cover;
+                            background-size: cover;
+                            -o-background-size: cover;
+                            padding: 40px;
+                            margin-right: 60px;
+                            margin-left: 60px;
+                            
+                        }
+                        .logo {
+                            height: 40px;
+                          
+                        }
+                        .offer {
+                            background-color: black;
+                            border-radius: 40%;
+                            text-align: center;
+                        }
+
+                    </style>       
+                   

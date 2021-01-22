@@ -1,0 +1,79 @@
+﻿@using VinyLand.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+}
+<html>
+<head>
+    <link href="~/Content/MainPage/LoginPage/login-styles.css" rel="stylesheet" />
+    <link href="~/Content/MainPage/LoginPage/bootstrap-login.min.css" rel="stylesheet">
+    <link href="~/Content/MainPage/simple-line-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <img src="~/Content/Pictures/vinyl.svg" class="logo text-center" alt="Logo">
+                        <h5 class="card-title text-center">Welcome back!</h5>
+                        
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <h4 class="card-title text-center">LOGIN</h4>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-label-group">
+
+
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    <label for="inputEmail">Email address</label>
+                                </div>
+                                <div class="form-label-group">
+
+
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    <label for="inputPassword">Password</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                                <div class="checkbox">
+
+                                </div>
+
+                                <input type="submit" value="LOGIN" class="btn btn-lg btn-primary btn-block text-uppercase" />
+
+                                <hr class="my-4">
+                                @Html.ActionLink("REGISTER", "Register", routeValues: null, htmlAttributes: new { @class = " btn btn-lg btn-primary btn-block text-uppercase" })
+                                @Html.ActionLink("Home page", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-lg btn-primary btn-block text-uppercase " })
+
+
+
+                            }
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+<style>
+.logo
+    {
+        height:40px;
+        padding-left:45%;
+        padding-right:45%;
+    }
+
+
+</style>

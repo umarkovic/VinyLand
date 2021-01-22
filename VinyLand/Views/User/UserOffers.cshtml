@@ -1,0 +1,184 @@
+﻿@model IEnumerable<VinyLand.Models.Offer>
+
+
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<html>
+<head>
+    <body>
+
+
+        <div class="card border-0 shadow my-5">
+            <div class="card-body p-5">
+                <h4> Your offers</h4>
+                <h5 class="text-warning"> You have @Model.Count() pending offers</h5>
+                <div style="">
+                    @if (Model.Count() == 0)
+                    {
+                        <h3>You dont have any offers</h3>
+                    }
+                <table class="table table-striped table table-dark table-condensed voc_list">
+                    <thead>
+                        <tr>
+                            <th> Picture</th>
+                            <th>User</th>
+                            <th>Offers record/money</th>
+                            <th>For your</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.Type == "Trade")
+                            {
+                                <tr>
+                                    <td style="padding:15px 0px 15px 0px; resize:50px;">
+                                        <a href="xy" title="">
+                                            <img class="img-responsive voc_list_preview_img" style="width:auto; padding-left:10px; " src=@Url.Content(item.Buyer.Picture) width="50" height="50">
+                                        </a>
+                                    </td>
+                                    <td>
+
+                                        <label> @item.Buyer.Email </label>
+                                    </td>
+
+                                    <td>
+                                        <label>@item.RecordTitleB</label>
+
+                                    </td>
+
+                                    <td>
+                                        <label>@item.RecordTitleS </label>
+
+                                    </td>
+
+                                    <td>
+                                        <label>@item.Status</label>
+
+                                    </td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-primary fa fa-star" data-toggle="modal" data-target="#Acce" style="margin-left:35%"> Accept</button>
+
+                                    </td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-primary fa fa-star" data-toggle="modal" data-target="#Decl" style="margin-left:35%"> Decline</button>
+
+                                    </td>
+
+
+                                </tr>
+                            }
+                            else
+                            {
+                <tr>
+                    <td style="padding:15px 0px 15px 0px; resize:50px;">
+                        <a href="xy" title="">
+                            <img class="img-responsive voc_list_preview_img" style="width:auto; padding-left:10px; " src=@Url.Content(item.Buyer.Picture) width="50" height="50">
+                        </a>
+                    </td>
+                    <td>
+
+                        <label>@item.Buyer.Email </label>
+                    </td>
+                    <td>
+                        <label> @item.Price $ </label>
+
+                    </td>
+                    <td>
+                        <label> @item.RecordTitleS </label>
+
+                    </td>
+                    <td>
+                        <label>@item.Status</label>
+
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary fa fa-star" data-toggle="modal" data-target="#Acce" style="margin-left:35%"> Accept</button>
+
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary fa fa-star" data-toggle="modal" data-target="#Decl" style="margin-left:35%"> Decline</button>
+
+                    </td>
+
+
+                </tr>
+
+                            }
+                            <div class="modal fade" id="Acce" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Offer</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <h4>Are you sure about accepting offer?</h4>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            @Html.ActionLink("Accept", "AcceptOffer", new { idOffer = item.Id, RecordTitleS = item.RecordTitleS, RecordTitleB = item.RecordTitleB, type = item.Type }, new { @class = "btn btn-primary" })
+                                            <button class="btn btn-primary" type="button" data-dismiss="modal"> Abort </button>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="modal fade" id="Decl" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Offer</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <h4>Are you sure about declining offer?</h4>
+                                        </div>
+                                        <div class="modal-footer">
+                                            @Html.ActionLink("Decline", "DeclineOffer", new { idOffer = item.Id }, new { @class = "btn btn-primary" })
+                                            <button class="btn btn-primary" type="button" data-dismiss="modal"> Abort </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        }
+
+                </table>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </body>
+</head>
+</html>

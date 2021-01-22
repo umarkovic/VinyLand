@@ -1,0 +1,85 @@
+﻿@model VinyLand.Models.User
+
+@{
+    ViewBag.Title = "UserSignedUp";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProfile</title>
+</head>
+<body>
+    @using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="card border-0 shadow my-5">
+            <div class="card-body p-5">
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Email)
+                    @Html.HiddenFor(model => model.Id)
+
+                    <h3 align="center">Upload new profile picture </h3>
+
+                    <div class="panel-body" align="center" style="padding-bottom:30px;">
+                        <div id="uploaded"><img style="background-color: #FFC107; border-radius:50%; " src="@Url.Content(Model.Picture)" width=300 height=300 class="avatar img-circle img-thumbnail" alt="avatar" ></div>
+
+
+                        <input type="file" name="upload" id="upload" />
+                        <hr />
+
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Username", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Nickname, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nickname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PersonName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PersonName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Surname", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PersonSurName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PersonSurName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Email", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save changes" style="background:#FFC107" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+                }
+
+                
+    </body>
+</html>
